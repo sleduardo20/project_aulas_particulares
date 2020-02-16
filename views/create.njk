@@ -1,0 +1,81 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<form class="container" method="POST" action="/teachers">
+     <section class="images"
+              style="background: url(https://source.unsplash.com/collection/332741/900x900) no-repeat center center / cover">
+     </section>
+
+     
+     <section class="detalhes">
+        <h3>Dados Cadastrais</h3>
+        
+        <div class="item">
+            <div>Foto</div>
+            <div>
+                <input 
+                    type="url" 
+                    name="avatar_url"
+                    placeholder="http://"
+                >
+            </div>
+
+        <div class="item">
+            <div>Nome Completo</div>
+            <div>
+                <input 
+                    type="text" 
+                    name="Name"
+                    placeholder="Informe seu nome"
+                >
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Idade</div>
+            <div>
+                <input 
+                    type="text" 
+                    name="idade"
+                >
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Grau de Escolaridade</div>
+            <div>
+                <select name="Escolaridade">
+                    <option selected disabled>Selecione a Fromação</option>
+                    <option value="Graduado">Graduado</option>
+                    <option value="Mestrado">Mestrado</option>
+                    <option value="Doutorado">Doutorado</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="item">
+            <div>Tipo de Aula</div>
+            <div>
+                <small><input type="radio" name="tipoaula" value="Presencial">Presencial</small>
+                <small><input type="radio" name="tipoaula" value="Distância">Á Distância</small>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Área de Atuação</div>
+            <div>
+                <input 
+                    type="text" 
+                    name="atuacao"
+                    placeholder="Disciplinas separadas por vírgula"
+                >
+            </div>
+        </div>
+        
+        <button type="submit">Salvar</button>
+</form>
+
+{% endblock content %}
+
+
