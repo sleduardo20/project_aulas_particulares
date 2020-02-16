@@ -16,21 +16,23 @@ exports.post = function(req,res){
     }
 
     //desestruturando o req.body para sabermos o que estamos buscando
-    let {avatar_url, Name, idade, Escolaridade, tipoaula, atuacao} = req.body 
+    let {avatar_url, Name, dt_nascimento, Escolaridade, tipoaula, atuacao} = req.body 
     
     //criando um id para podermos buscar futuramente no banco de dados
     const id = Number (data.teachers.length + 1)
     
+
+    
     //adicionando os dados em um array teachers
-    data.teachers.push(
+    data.teachers.push({
         id,
         Name,
         avatar_url,
-        idade,
+        dt_nascimento,
         Escolaridade,
         tipoaula,
         atuacao
-    );
+    });
 
     
     //funçao para escrever os dados em um arquivo Json

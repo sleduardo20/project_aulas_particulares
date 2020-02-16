@@ -138,8 +138,10 @@ input[type="radio"]{
     width: initial;
     margin-right: 5px;
     display: inline-block;
-    
-    
+}
+
+input[type="date"]{
+    color: var(--color);
 }
 
 input::placeholder{

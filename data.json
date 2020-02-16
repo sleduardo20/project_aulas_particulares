@@ -1,11 +1,22 @@
 {
   "teachers": [
-    1,
-    "Eduardo",
-    "http://go.com",
-    "29",
-    "Graduado",
-    "Presencial",
-    "JavaScript, Html, Css"
+    {
+      "id": 1,
+      "Name": "Eduardo",
+      "avatar_url": "http://glo.com",
+      "dt_nascimento": "1991-02-16",
+      "Escolaridade": "Graduado",
+      "tipoaula": "Presencial",
+      "atuacao": "Js, Css, Html"
+    },
+    {
+      "id": 2,
+      "Name": "Laura",
+      "avatar_url": "http://glo.com",
+      "dt_nascimento": "1992-07-21",
+      "Escolaridade": "Graduado",
+      "tipoaula": "Presencial",
+      "atuacao": "Enfermagem"
+    }
   ]
 }
