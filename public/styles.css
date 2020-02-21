@@ -97,6 +97,8 @@ header{
 
 .detalhes .item{
     margin-top: 10px;
+    
+    
 }
 
 .detalhes h3{
@@ -117,6 +119,12 @@ header{
     margin-top: 4px;
     font-weight: bold;
     font-size: 16px;
+    
+}
+
+.avatar_url{
+    width: 100%;
+    word-wrap: break-word;
 }
 
 
@@ -161,7 +169,8 @@ small{
     margin-right: 20px;
 }
 
-button{
+button
+{
     width: 100%;
     color: white;
     background-color: var(--color);
@@ -169,4 +178,6 @@ button{
     margin-top: 16px;
     font-size: 15px;
     border-radius: 5px;
+    
+    
 }

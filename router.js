@@ -7,7 +7,6 @@ router.get('/',function(req,res){
     return res.redirect('/teachers/create')
 })
 
-
 router.get('/teachers',function(req,res){
     return res.render('teachers/index')
 })
@@ -16,19 +15,26 @@ router.get('/teachers/create',function(req,res){
     return res.render('create')
 })
 
+router.get('/teachers-list',function(req,res){
+    return res.send('Pagina de Listagem')
+})
+
+router.get('/teachers/:id/show',teachers.show)
+
+router.get('/teachers/:id/edit',teachers.edit)
+
 
 router.post('/teachers',teachers.post)
 
-
-router.get('/teachers-list',function(req,res){
-        return res.send('Pagina de Listagem')
-})
-
-
-
 router.get('/students',function(req,res){
-    return res.send('teste')
+return res.send('teste')
 })
+
+
+
+
+
+
 
 
 

@@ -1,7 +1,30 @@
 //POST ou Create
 const fs = require('fs');
 const data = require('./data.json');
+const {date,age,graduation,tipoAula} = require ('./util')
 
+
+exports.show = (req,res) => {
+    const {id} = req.params
+
+    const foundTeacher = data.teachers.find((teacher)=>{
+        return teacher.id == id
+    })
+
+    if (!foundTeacher) return res.send ("Teacher não foi encontrado !")
+
+    const teacher = {
+        ...foundTeacher,
+        dt_nascimento: age(foundTeacher.dt_nascimento),
+        Escolaridade: graduation(foundTeacher.Escolaridade),
+        tipoAula: tipoAula(foundTeacher.tipoAula)
+        
+
+    }
+    return res.render('teachers/show',{teacher})
+    
+    
+}
 
 exports.post = function(req,res){
     
@@ -20,7 +43,7 @@ exports.post = function(req,res){
     
     //criando um id para podermos buscar futuramente no banco de dados
     const id = Number (data.teachers.length + 1)
-    
+
 
     
     //adicionando os dados em um array teachers
@@ -32,8 +55,7 @@ exports.post = function(req,res){
         Escolaridade,
         tipoaula,
         atuacao
-    });
-
+    })
     
     //funçao para escrever os dados em um arquivo Json
     fs.writeFile("data.json",JSON.stringify(data, null, 2),function(erro){
@@ -44,3 +66,21 @@ exports.post = function(req,res){
 
     
 }
+
+exports.edit = function(req,res){
+    const {id} = req.params
+
+    const foundTeacher = data.teachers.find(function(teacher){
+        return teacher.id == id
+    })
+
+    if (!foundTeacher) return res.send ("Teacher não foi encontrado !")
+
+    const teacher = {
+        ...foundTeacher,
+    }
+    
+    return res.render('teachers/edit',{teacher})
+
+}
+

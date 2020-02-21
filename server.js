@@ -14,7 +14,9 @@ server.use(router);
 server.set("view engine", "njk"); 
 
 nunjucks.configure("views",{
-    express:server
+    express:server,
+    autoescape:false,
+    noCache:true
 })
 
 

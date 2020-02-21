@@ -1,0 +1,62 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<form class="container" method="GET" action="/teachers/{{teacher.id}}/edit">
+     <section class="images"
+              style="background: url({{teacher.avatar_url}}) no-repeat center center / cover">
+     </section>
+
+     
+     <section class="detalhes">
+        <h3>Dados do Teacher</h3>
+        
+        <div class="item">
+           <div>Foto</div>
+             <div>
+               <p class="avatar_url"> {{teacher.avatar_url}} </p> 
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Nome Completo</div>
+            <div>
+                {{teacher.Name}}
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Idade</div>
+            <div>
+                {{teacher.dt_nascimento}}
+                
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Grau de Escolaridade</div>
+            <div>
+                  {{teacher.Escolaridade}}
+            </div>
+        </div>
+        
+        <div class="item">
+            <div>Tipo de Aula</div>
+            <div>
+                {{teacher.tipoaula}}
+
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Área de Atuação</div>
+            <div>
+                {{teacher.atuacao}}
+            </div>
+        </div>
+        
+        <button>Editar</button> 
+
+</form>
+
+{% endblock content %}
