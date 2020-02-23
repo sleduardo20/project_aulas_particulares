@@ -37,9 +37,27 @@
             <div>
                 <select name="Escolaridade">
                     <option selected disabled>Selecione a Fromação</option>
-                    <option value="{{teacher.Escolaridade.Graduado}}">Graduado</option>
-                    <option value="{{teacher.Escolaridade.Mestrado}}">Mestrado</option>
-                    <option value="{{teacher.Escolaridade.Doutorado}}">Doutorado</option>
+                    <option value="Graduado"
+                            {% if teacher.Escolaridade =='Graduado'%}
+                            selected
+                            {% endif %}
+                            >Graduado
+                    </option>
+
+                    <option value="Mestrado"
+                            {% if teacher.Escolaridade =='Mestrado'%}
+                            selected
+                            {% endif %}
+                            >Mestrado
+                    </option>
+
+                    <option value="Doutorado"
+                            {% if teacher.Escolaridade =='Doutorado'%}
+                            selected
+                            {% endif %}
+                            >Doutorado
+                    </option>
+
                 </select>
             </div>
         </div>
@@ -47,25 +65,27 @@
         <div class="item">
             <div>Tipo de Aula</div>
             <div>
-                <small>
+                <span>
                     <input 
                         type="radio" 
                         name="tipoaula" 
+                        value="P"
                         {% if teacher.tipoaula =='Presencial'  %}
                             checked
                         {% endif %}
-                        
                         >Presencial
-                </small>
+                </span>
                 
-                <small>
+                <span>
                     <input 
                         type="radio" 
-                        name="tipoaula" 
+                        name="tipoaula"
+                        value="D"
                         {% if teacher.tipoaula =='Distância'  %}
                             checked
                         {% endif %}
-                        >Á Distância</small>
+                        >Á Distância
+                </span>
             </div>
         </div>
 

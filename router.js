@@ -19,12 +19,17 @@ router.get('/teachers-list',function(req,res){
     return res.send('Pagina de Listagem')
 })
 
-router.get('/teachers/:id/show',teachers.show)
+router.get('/teachers/:id',teachers.show)
 
 router.get('/teachers/:id/edit',teachers.edit)
 
 
 router.post('/teachers',teachers.post)
+
+router.put('/teachers',teachers.put)
+
+router.delete('/teachers',teachers.delete)
+
 
 router.get('/students',function(req,res){
 return res.send('teste')

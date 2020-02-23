@@ -178,6 +178,8 @@ button
     margin-top: 16px;
     font-size: 15px;
     border-radius: 5px;
-    
-    
+}
+
+.btn-deletar {
+    background-color: brown;
 }

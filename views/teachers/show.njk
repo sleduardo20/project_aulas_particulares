@@ -43,7 +43,7 @@
         <div class="item">
             <div>Tipo de Aula</div>
             <div>
-                {{teacher.tipoaula}}
+                {{"Presencial" if  teacher.tipoaula=="P" else "A Distância"}}
 
             </div>
         </div>

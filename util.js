@@ -1,10 +1,10 @@
 module.exports = {
-    date: function(timestamp){
+    date_nascimento: (timestamp)=>{
         const date = new Date(timestamp)
 
         const year = date.getUTCFullYear()
-        const month = date.getUTCMonth()
-        const day = `0${date.getUTCDay()}`.slice(-2)
+        const month = `0${date.getUTCMonth() + 1}`.slice(-2)
+        const day = `0${date.getUTCDate()}`.slice(-2)
 
         return `${year}-${month}-${day}`
     },
@@ -39,8 +39,12 @@ module.exports = {
         
     },
 
-    tipoAula: (type) =>{
-        (type=='Presencial') ? "Presencial":"Á Distância"
+    tipoAula: (typeAula) =>{
+        if (typeAula == "P"){
+            return 'Presencial'
+        }else{
+            return 'A Distância'
+        }
     },
 
 

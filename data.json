@@ -2,45 +2,12 @@
   "teachers": [
     {
       "id": 1,
-      "Name": "Eduardo",
-      "avatar_url": "https://avatars2.githubusercontent.com/u/56615577?s=460&v=4",
-      "dt_nascimento": "1991-02-16",
+      "Name": "Eduardo Sousa Lima",
+      "avatar_url": "http://google.com",
+      "dt_nascimento": 666662400000,
       "Escolaridade": "Graduado",
-      "tipoaula": "Presencial",
-      "atuacao": "Js, Css, Html"
-    },
-    {
-      "id": 2,
-      "Name": "Laura",
-      "avatar_url": "http://glo.com",
-      "dt_nascimento": "1992-07-21",
-      "Escolaridade": "Graduado",
-      "tipoaula": "Á Distância",
-      "atuacao": "Enfermagem, Mae"
-    },
-    {
-      "id": 3,
-      "Name": "Eduardo",
-      "avatar_url": "http://glo.com",
-      "dt_nascimento": "1991-02-16",
-      "tipoaula": "on",
-      "atuacao": "Js, Css, Html"
-    },
-    {
-      "id": 4,
-      "Name": "Eduardo",
-      "avatar_url": "http://glo.com",
-      "dt_nascimento": "1991-02-16",
-      "tipoaula": "on",
-      "atuacao": "Js, Css, Node"
-    },
-    {
-      "id": 5,
-      "Name": "Eduardo",
-      "avatar_url": "http://glo.com",
-      "dt_nascimento": "1991-02-16",
-      "tipoaula": "on",
-      "atuacao": "Js, Css, Html"
+      "tipoaula": "P",
+      "atuacao": "JavaScript, Html, Css, NodeJs"
     }
   ]
 }
