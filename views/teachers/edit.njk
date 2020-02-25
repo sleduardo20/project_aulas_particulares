@@ -5,7 +5,7 @@
 <div class="container">
 
    <section class="images"
-            style="background: url(https://source.unsplash.com/collection/332741/900x900) no-repeat center center / cover">
+            style="background: url({{teacher.avatar_url}}) no-repeat center center / cover">
    </section>
 
    <section class="detalhes">
@@ -22,12 +22,14 @@
          >
       </form>
 
-      <form action="/teachers?_method=DELETE" method="post">
+      <form id="form-delete" action="/teachers?_method=DELETE" method="post">
             <input type="hidden" name="id" value={{teacher.id}}>
             <button class="btn-deletar" type="submit">Deletar</button>
       </form>
    </section>
 
 </div>
+
+{% include 'teachers/confirmation.njk' %}
 
 {% endblock content %}

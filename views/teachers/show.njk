@@ -4,20 +4,13 @@
 
 <form class="container" method="GET" action="/teachers/{{teacher.id}}/edit">
      <section class="images"
-              style="background: url({{teacher.avatar_url}}) no-repeat center center / cover">
+              style="background: url({{teacher.avatar_url}}) no-repeat center / cover">
      </section>
 
      
      <section class="detalhes">
         <h3>Dados do Teacher</h3>
         
-        <div class="item">
-           <div>Foto</div>
-             <div>
-               <p class="avatar_url"> {{teacher.avatar_url}} </p> 
-            </div>
-        </div>
-
         <div class="item">
             <div>Nome Completo</div>
             <div>
@@ -55,7 +48,7 @@
             </div>
         </div>
         
-        <button>Editar</button> 
+        <button class="btn-edit"><a> Editar</a></button> 
 
 </form>
 

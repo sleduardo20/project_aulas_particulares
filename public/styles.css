@@ -62,14 +62,10 @@ header{
     transition: width 200ms ease-in-out; /* 1-Elemento 2-duraçao 3-Time da Transiçao*/
 }
 
-.images{
-    opacity: 0.6;
-}
-
 .container{
     background-color:rgba(255, 255, 255, 0.8);
-    width: 800px;
-    min-height: 400px;
+    width: 900px;
+    min-height: 600px;
     margin: 300px auto;
     box-shadow: 5px 6px 8px black;
     border-radius: 5px;
@@ -89,8 +85,9 @@ header{
         opacity: 1;
     }
 }
-
-
+.images{
+    text-align: left;
+}
 .detalhes{
     padding: 20px;
 }
@@ -122,11 +119,6 @@ header{
     
 }
 
-.avatar_url{
-    width: 100%;
-    word-wrap: break-word;
-}
-
 
 /*Formulario*/
 
@@ -149,7 +141,9 @@ input[type="radio"]{
 }
 
 input[type="date"]{
-    color: var(--color);
+    color: black;
+    font-size: 16px;
+    font-family: "Roboto",sans-serif;
 }
 
 input::placeholder{
@@ -161,6 +155,8 @@ input::placeholder{
 select {
     width: 100%;
     color: var(--color);
+    font-size: 16px;
+    color: black;
 }
 
 
@@ -182,4 +178,97 @@ button
 
 .btn-deletar {
     background-color: brown;
+}
+.btn-edit{
+    margin-top: 40px;
+    text-transform: uppercase;
+    padding: 4px;
+}
+
+.btn-edit:hover{
+    color: brown;
+    transition-duration: 400ms;
+}
+
+
+.card-list{
+    width: 80%;
+    display: block;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.card-list table{
+    border-spacing: 0;
+    width: 100%;
+}
+
+th{
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgb(90, 90, 90)
+}
+
+
+tbody tr td:first-child{
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    align-items: center;
+}
+
+ th,td {
+    padding: 16px;
+    border-bottom: 2px solid black;
+}
+
+
+table tr:last-child td{
+    border-bottom: none;
+}
+
+tbody tr td:first-child span{
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 1px 2px black;
+}
+
+tbody tr td:last-child a{
+    background-color: var(--color);
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    text-transform:uppercase;
+    font-size: 12px;
+    border-radius: 8px;
+    
+    
+}
+
+.card-list a{
+    background-color: var(--color);
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+    text-transform:uppercase;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-left: 12px;
+    padding: 10px;
+    width: 64px;
+    text-align: center;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+tbody tr td:last-child a:hover,
+.card-list a:hover{
+    color: brown;
+    font-size: 12px;
+    transition-duration: 400ms;
+    
 }
