@@ -210,16 +210,34 @@ th{
     color: rgb(90, 90, 90)
 }
 
+table thead tr th,
+tbody {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+tbody tr td {
+    
+    border-bottom: 1px solid black;
+}
+
+table thead tr:last-child th{
+    margin-left: 35px
+}
+
 
 tbody tr td:first-child{
     display: grid;
     grid-template-columns: 50px 1fr;
     align-items: center;
+    text-align: left;
+    
 }
+
+
 
  th,td {
     padding: 16px;
-    border-bottom: 2px solid black;
 }
 
 
@@ -235,6 +253,7 @@ tbody tr td:first-child span{
     border-radius: 50%;
     border: 2px solid white;
     box-shadow: 1px 2px black;
+    margin-bottom: 8px;
 }
 
 tbody tr td:last-child a{
@@ -245,9 +264,9 @@ tbody tr td:last-child a{
     text-transform:uppercase;
     font-size: 12px;
     border-radius: 8px;
-    
-    
 }
+
+
 
 .card-list a{
     background-color: var(--color);
