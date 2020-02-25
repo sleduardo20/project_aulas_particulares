@@ -1,0 +1,87 @@
+        <div class="item">
+            <div>Foto</div>
+            <div>
+                <input 
+                    type="url" 
+                    name="avatar_url"
+                    placeholder="http://"
+                    value="{{student.avatar_url}}"
+                >
+            </div>
+
+        <div class="item">
+            <div>Nome Completo</div>
+            <div>
+                <input 
+                    type="text" 
+                    name="Name"
+                    placeholder="Informe seu nome"
+                    value="{{student.Name}}"
+                >
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Email</div>
+            <div>
+                <input 
+                    type="email" 
+                    name="email"
+                    value="{{student.email}}"
+                >
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Ano Escolar</div>
+            <div>
+                <select name="yearScholl">
+                    <option value="5F" {% if student.yearScholl=='5F' %} selected {% endif %}>
+                        5º Fund.
+                    </option>
+                    
+                    <option value="6F" {% if student.yearScholl=='6F' %} selected {% endif %}>
+                        6º Fund.
+                    </option>
+                    
+                    <option value="7F" {% if student.yearScholl=='7F' %} selected {% endif %}>
+                        7º Fund.
+                    </option>
+                    
+                    <option value="8F" {% if student.yearScholl=='8F' %} selected {% endif %}>
+                        8º Fund.
+                    </option>
+                    
+                    <option value="9F" {% if student.yearScholl=='9F' %} selected {% endif %}>
+                        9º Fund.
+                    </option>
+                    
+                    <option value="1M" {% if student.yearScholl=='1M' %} selected {% endif %}>
+                        1º Med.
+                    </option>
+                    
+                    <option value="2M" {% if student.yearScholl=='2M' %} selected {% endif %}>
+                        2º Med.
+                    </option>
+                    
+                    <option value="3M" {% if student.yearScholl=='3M' %} selected {% endif %}>
+                        3º Med.
+                  </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Carga Horária</div>
+            <div>
+                <input 
+                    type="number" 
+                    name="hours"
+                    value="{{student.hours}}"
+                >
+            </div>
+        </div>
+
+             
+        
+        <button type="submit">Salvar</button>

@@ -1,0 +1,52 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+    <div class="container card-list">
+        <a href="/students/create">Novo</a>
+        <table>
+            <thead>
+                <tr>
+                <th>Estudante</th>
+                <th>Email</th>
+                <th>Ano Escolar</th>
+                <th>Carga Hr Semanal</th>
+                <th>Cadastro</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for student in students %}    
+                    <tr>
+                        <td>
+                        <span style= "background-image: url({{student.avatar_url}})"></span>
+                        {{student.Name}}
+                        </td>
+                        <td>{{student.email}}</td>
+                        
+                        <td> 
+                            {% if student.yearScholl == '5F' %} 5º Ano do Ensino Fundamental {% endif%} 
+                            {% if student.yearScholl == '6F' %} 6º Ano do Ensino Fundamental {% endif%} 
+                            {% if student.yearScholl == '7F' %} 7º Ano do Ensino Fundamental {% endif%} 
+                            {% if student.yearScholl == '8F' %} 6º Ano do Ensino Fundamental {% endif%} 
+                            {% if student.yearScholl == '9F' %} 9º Ano do Ensino Fundamental {% endif%} 
+                            {% if student.yearScholl == '1M' %} 1º Ano do Ensino Médio {% endif%} 
+                            {% if student.yearScholl == '2M' %} 2º Ano do Ensino Médio {% endif%} 
+                            {% if student.yearScholl == '3M' %} 3º Ano do Ensino Médio {% endif%} 
+                        
+                        </td>
+
+                        <td>{{student.hours}}</td>
+                        <td><a href="students/{{student.id}}">acessar</a></td>
+                    </tr>
+                {% endfor %}    
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+{% endblock content %}
+
+
