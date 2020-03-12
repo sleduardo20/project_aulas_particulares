@@ -1,0 +1,42 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<form class="container" method="GET" action="/students/{{student.id}}/edit">
+     <section class="images"
+              style="background: url({{student.avatar_url}}) no-repeat center / cover">
+     </section>
+
+     
+     <section class="detalhes">
+        <h3>Dados do Estudante</h3>
+        
+        <div class="item">
+            <div>Nome Completo</div>
+            <div>
+                {{student.name}}
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Email</div>
+            <div>
+                {{student.email}}
+                
+            </div>
+        </div>
+
+        <div class="item">
+            <div>Ano Escolar</div>
+            <div>
+                  {{student.yearscholl}}
+            </div>
+        </div>
+        
+
+        
+        <button class="btn-edit"><a> Editar </a></button> 
+
+</form>
+
+{% endblock content %}
