@@ -2,8 +2,19 @@
 
 {% block content %}
 
-    <div class="container card-list">
-        <a href="/students/create">Novo</a>
+    <div class="container card-list index">
+        
+        <div class="header">
+            <a href="/students/create">Novo</a>
+            <form action="/teachers" method="get">
+                <input type="text" 
+                       name="filter"
+                       placeholder="Filtrar por Nome ou Email"
+                       value={{filter}}>
+                <button type="submit">Filtrar</button>
+            </form>    
+        </div>
+        
         <table>
             <thead>
                 <tr>
@@ -41,6 +52,13 @@
             </tbody>
 
         </table>
+        
+        <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}}
+        data-filter={{filter}}>
+        </div>
+        
     </div>
 
 

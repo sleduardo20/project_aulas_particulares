@@ -66,9 +66,10 @@ header{
     background-color:rgba(255, 255, 255, 0.8);
     width: 900px;
     min-height: 600px;
-    margin: 300px auto;
+    margin: 600px auto;
     box-shadow: 5px 6px 8px black;
     border-radius: 5px;
+    margin-top: 80px;
 
     display: grid;
     grid-template-columns: 60% 40%;
@@ -290,4 +291,45 @@ tbody tr td:last-child a:hover,
     font-size: 12px;
     transition-duration: 400ms;
     
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.header form{
+    display: grid;
+    grid-template-columns: 1fr 80px;
+    align-items: center;
+}
+
+.header form input{
+    box-sizing: border-box;
+    width: 320px;
+    padding: 8px;
+}
+
+.header form button{
+    padding: 8px;
+}
+
+
+
+.index{
+    display: grid;
+    grid-template: 64px 1fr 16px /1fr;
+    
+}
+
+.pagination{
+    align-self: center;
+    text-align: center;
+}
+
+.pagination a {
+    padding: 2px;
+    width: 24px;
 }

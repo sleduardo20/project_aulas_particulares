@@ -2,13 +2,24 @@
 
 {% block content %}
 
-    <div class="container card-list">
-    <a href="/teachers/create">Novo</a>
+    <div class="container card-list index">
+        <div class="header">
+            <a href="/teachers/create">Novo</a>
+            <form action="/teachers" method="get">
+                <input type="text" 
+                       name="filter"
+                       placeholder="Filtrar por Nome ou Atuação"
+                       value={{filter}}>
+                <button type="submit">Filtrar</button>
+            </form>    
+        </div>
+    
         <table>
             <thead>
                 <tr>
                 <th>Teachers</th>
                 <th>Atuação</th>
+                <th>Qtd Alunos</th>
                 <th>Ação</th>
                 </tr>
             </thead>
@@ -21,12 +32,19 @@
                         {{teacher.name}}
                         </td>
                         <td>{{teacher.area_atuacao}}</td>
+                        <td>{{teacher.qtd_alunos}}</td>
                         <td><a href="teachers/{{teacher.id}}">acessar</a></td>
                     </tr>
                 {% endfor %}    
             </tbody>
 
         </table>
+
+        <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}}
+        data-filter={{filter}}>
+        </div>
     </div>
 
 {% endblock content %}

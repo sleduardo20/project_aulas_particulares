@@ -17,9 +17,10 @@ module.exports = {
             name,
             email,
             yearscholl,
-            hours
+            hours,
+            id_teacher
             
-        ) values ( $1, $2, $3, $4, $5 ) returning id`
+        ) values ( $1, $2, $3, $4, $5, $6 ) returning id`
         
         const values = [
             data.avatar_url,
@@ -27,6 +28,7 @@ module.exports = {
             data.email,
             data.yearscholl,
             data.hours,
+            data.teachers
 
         ]
 
@@ -39,7 +41,10 @@ module.exports = {
     },
 
     find(id, callback){
-        const query = `select * from students where id = $1`
+        const query = `select s.*, t.name name_teacher
+                       from teachers t join
+                            students s on t.id = s.id_teacher 
+                       where s.id = $1`
         
         db.query(query,[id], (err, results) =>{
             if (err) throw `Database err ${err}`
@@ -78,6 +83,43 @@ module.exports = {
             if (err) throw `Database err ${err}`
              return callback()
         })
+    },
+
+    optionTeachers(callback){
+        db.query(`select id, name 
+                  from teachers`, (err, results) =>{
+            if (err) throw `Database err ${err}`
+            callback(results.rows)
+        })
+    },
+    pagination(params){
+        const { filter, limit, offset, callback } = params
+
+        let query = "",
+            filterQuery="",
+            totalQuery=`(select count(*) from students)total`
+
+        if(filter){
+            filterQuery=`where students.name ilike '%${filter}%' or students.area_atuacao ilike'%${filter}%'`
+            totalQuery = `(select count(*) from students 
+                          ${filterQuery})total`
+
+        }
+
+        query = `select students.*,
+                        ${totalQuery}
+                 from students 
+                ${filterQuery}
+                group by students.id
+                order by students.id
+                limit $1 
+                offset $2`
+        db.query(query,[limit,offset],(err, results)=>{
+            if (err) throw `Database err ${err}`
+            
+            callback(results.rows)
+        })
+
     }
 
 }

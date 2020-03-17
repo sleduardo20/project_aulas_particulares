@@ -4,18 +4,39 @@ const {date_nascimento, age, graduation, tipoAula, grade, cargaHoraria} = requir
 
 module.exports = {
     index(req, res){
+        let { filter, limit, page } = req.query
+
+        page = page || 1
+        limit = limit || 2
         
-        Students.all( (students) =>{
-            
-            students.hours = cargaHoraria(students.hours)
-            return res.render('students/index', { students })
-        } )
+        let offset =  limit * (page - 1)
+
+        const params = {
+            filter,
+            page,
+            limit,
+            offset,
+            callback(students){
+                const pagination = {
+                    total: Math.ceil(students[0].total / limit),
+                    page
+                }
+
+                return res.render('students/index', { students, filter, pagination })
+
+            }
+        }
+
+        Students.pagination(params)
         
     },
 
     create(req, res){
+        Students.optionTeachers((option) =>{
+            return res.render('students/create', { teachersOption: option })
+        })
+
         
-        return res.render('students/create')
     },
 
     show(req, res){
@@ -43,7 +64,8 @@ module.exports = {
         }
         
         Students.create(req.body, (students) =>{
-            return res.redirect(`students/`)
+            
+            return res.redirect(`/students`)
         })
     },
 
@@ -63,10 +85,13 @@ module.exports = {
     },
 
     edit(req, res){
+        
         Students.find(req.params.id, (student) =>{
             if (!student) return res.send('Student not found')
-
-            return res.render('students/edit',{ student })
+            
+            Students.optionTeachers( (option) => {
+                return res.render('students/edit',{ student, teachersOption: option })
+            })
         })
     },
 

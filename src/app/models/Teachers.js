@@ -3,7 +3,13 @@ const {age, date_nascimento, tipoAula, grade, graduation} = require('../../lib/u
 
 module.exports = {
     all(callback){
-        db.query(`select * from teachers`, (err, results) => {
+        db.query(`
+                select t.*, count(s) qtd_alunos
+                from teachers t left join
+                        students s on t.id = s.id_teacher
+                group by t.id
+                order by t.id`, 
+                (err, results) => {
             if (err) throw `Database err ${err}`
 
             callback(results.rows)
@@ -47,6 +53,22 @@ module.exports = {
         })
     },
 
+    findBy(filter ,callback){
+
+        db.query(`
+        select t.*, count(s) qtd_alunos
+        from teachers t left join
+                students s on t.id = s.id_teacher
+        where t.name ilike '%${filter}%'  or t.area_atuacao ilike '%${filter}%'
+        group by t.id
+        
+        `, (err, results)=>{
+            if (err) throw `Database err ${err}`
+            callback(results.rows)
+        })
+
+    },
+
     update(data, callback){
         const query = `update teachers set 
                        avatar_url = $1,                
@@ -80,6 +102,36 @@ module.exports = {
             if (err) throw `Database err ${err}`
              return callback()
         })
+    },
+    pagination(params){
+        const { filter, limit, offset, callback } = params
+
+        let query = "",
+            filterQuery="",
+            totalQuery=`(select count(*) from teachers)total`
+
+        if(filter){
+            filterQuery=`where teachers.name ilike '%${filter}%' or teachers.area_atuacao ilike'%${filter}%'`
+            totalQuery = `(select count(*) from teachers 
+                          ${filterQuery})total`
+
+        }
+
+        query = `select teachers.*,
+                        ${totalQuery},
+                        count(students.id)qtd_alunos
+                 from teachers left join students on teachers.id = students.id_teacher
+                ${filterQuery}
+                group by teachers.id
+                order by teachers.id
+                limit $1 
+                offset $2`
+        db.query(query,[limit,offset],(err, results)=>{
+            if (err) throw `Database err ${err}`
+            
+            callback(results.rows)
+        })
+
     }
 
 }
